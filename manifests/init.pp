@@ -11,11 +11,10 @@ class htop
     }
 
     file {
-        'htop-config-path':
+        ["/root/.config/", "/root/.config/htop/"]:
             mode => 700,
             owner => "root",
             group => "root",
-            path => ["/root/.config/", "/root/.config/htop/"],
             recurse => true,
             ensure => 'directory';
 
@@ -27,7 +26,7 @@ class htop
             source => "puppet:///modules/htop/htop-config",
             require => [
                 Package["htop"],
-                File['htop-config-path']
+                File["/root/.config/", "/root/.config/htop/"]
             ];
     }
 }
