@@ -15,7 +15,7 @@ class htop
             mode => 700,
             owner => "root",
             group => "root",
-            path => "/root/.config/htop/",
+            path => ["/root/.config/", "/root/.config/htop/"],
             recurse => true,
             ensure => 'directory';
 
